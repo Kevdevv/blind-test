@@ -1,40 +1,47 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
+import Sound from '../sound/test.mp3'
 
 const Landing = () => {
 
-    const api = "AIzaSyBwgtjyUrTcCltPYv9Yiz-0NwAJLOSU2EE"
-    const chanel = "UCdyHHpeqJiiODq5janZAvCQ"
+  const [valeurInput, setValeurInput] = useState('');
 
-    let fetchUrl = `https://www.googleapis.com/youtube/v3/search?key=${api}&channelId=${chanel}&part=snippet,id&order=date&maxResults=1`
+  function handleChange(event) {
+    setValeurInput(event.target.value)
 
-    console.log('FETCH', fetchUrl)
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    if (valeurInput === "chad") {
+      alert("Win")
+    }
+  }
+
+  console.log(valeurInput)
 
 
-    const [allVideo, setAllVideo] = useState([])
-
-    useEffect(() => {
-        fetch(fetchUrl).then((response) => response.json()).then((resJson) => {
-            const result = resJson.items.map(doc => ({
-                ...doc,
-                VideoLink: "https://www.youtube.com/embed/"+doc.id.videoId
-            }));
-            setAllVideo(result)
-        })
-    },[fetchUrl])
-
-    console.log('TEST',allVideo)
-    
-    
   return (
-    <div>
-      {allVideo.map ((item)=>{
-          return(
-            <div>
-              <iframe width="560" height="315" src={item.VideoLink} title="youtube" allowfullscreen ng-show="showvideo"></iframe>
-            </div>
-          )
-      })}
-    </div>
+    <>
+    <figure>
+    <figcaption>Listen to the Chad:</figcaption>
+    <audio
+        controls
+        autoplay
+        src={Sound}>
+            <a href="/#">
+                Download audio
+            </a>
+    </audio>
+</figure>
+
+    <form>
+      <label>
+        Entrez une valeur :
+        <input type="text" value={valeurInput} onChange={handleChange} />
+      </label>
+      <button onClick={handleSubmit}>Envoyer</button>
+    </form>
+    </>
   )
 }
 
