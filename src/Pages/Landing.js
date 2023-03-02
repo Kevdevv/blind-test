@@ -12,8 +12,13 @@ const Landing = () => {
 
   useEffect(() => {
 
-    if (seconds === 0) {
+    if (seconds === -1) {
       setCurrentComponent(currentComponent +1)
+      setSeconds(3)
+    }
+
+    if (currentComponent === totalComponents) {
+      alert("c'est fini")
       return
     }
     const interval = setInterval(() => {
@@ -24,17 +29,11 @@ const Landing = () => {
   }, [seconds]);
 
 
-  function change() {
-    setCurrentComponent(currentComponent < totalComponents ? currentComponent + 1 : 1);
-  }
-
-
   return (
     <>
     <div>
       <h1>Timer: {seconds} secondes</h1>
     </div>
-    <button onClick={change}>autre son</button>
     {(() => {
         switch (currentComponent) {
           case 1:
