@@ -1,46 +1,33 @@
 import React, { useState } from 'react'
-import Sound from '../sound/test.mp3'
+import Test from '../sound/test.mp3'
+import Sound from '../component/Sound'
+import Eye from '../sound/21.mp3'
 
 const Landing = () => {
 
-  const [valeurInput, setValeurInput] = useState('');
+  const [currentComponent, setCurrentComponent] = useState(1);
+  const totalComponents = 3;
 
-  function handleChange(event) {
-    setValeurInput(event.target.value)
 
+  function change() {
+    setCurrentComponent(currentComponent < totalComponents ? currentComponent + 1 : 1);
   }
-
-  function handleSubmit(event) {
-    event.preventDefault();
-    if (valeurInput === "chad") {
-      alert("Win")
-    }
-  }
-
-  console.log(valeurInput)
 
 
   return (
     <>
-    <figure>
-    <figcaption>Listen to the Chad:</figcaption>
-    <audio
-        controls
-        autoplay
-        src={Sound}>
-            <a href="/#">
-                Download audio
-            </a>
-    </audio>
-</figure>
 
-    <form>
-      <label>
-        Entrez une valeur :
-        <input type="text" value={valeurInput} onChange={handleChange} />
-      </label>
-      <button onClick={handleSubmit}>Envoyer</button>
-    </form>
+    <button onClick={change}>autre son</button>
+    {(() => {
+        switch (currentComponent) {
+          case 1:
+            return <Sound content={Test} valeur='chad' />;
+          case 2:
+            return <Sound content={Eye} valeur='eye' />;
+          default:
+            return <p>PROUT</p>;
+        }
+      })()}
     </>
   )
 }
