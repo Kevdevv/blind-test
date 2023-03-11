@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
+import PopUp from './PopUp';
 
 const Sound = (props) => {
 
   const [valeurInput, setValeurInput] = useState('');
+  const [modal, setModal] = useState(false)
 
 
   function handleChange(event) {
@@ -12,9 +14,10 @@ const Sound = (props) => {
 
   function handleSubmit() {
       if (valeurInput === props.valeur) {
-          alert("Bonne réponse")
+          setModal(true)
+          props.fonction()
       } else {
-        alert('Dans le cul')
+        console.log('Dans le cul')
       }
     }
 
@@ -22,22 +25,19 @@ const Sound = (props) => {
   return (
     <>
 
-    <form>
-      <label>
-        Entrez une valeur :
+
         <input type="text" value={valeurInput} onChange={handleChange} />
-      </label>
       <button onClick={handleSubmit}>Envoyer</button>
-   </form>
 
     <audio
         controls
-        autoplay
+        autoPlay
         src={props.content}>
             <a href="/#">
                 Download audio
             </a>
     </audio>
+      {modal && <PopUp />}
     </>
   )
 }

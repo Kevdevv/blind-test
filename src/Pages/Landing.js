@@ -8,13 +8,13 @@ const Landing = () => {
   const [currentComponent, setCurrentComponent] = useState(1);
   const totalComponents = 3;
 
-  const [seconds, setSeconds] = useState(3);
+  const [seconds, setSeconds] = useState(15);
 
   useEffect(() => {
 
     if (seconds === -1) {
       setCurrentComponent(currentComponent +1)
-      setSeconds(3)
+      setSeconds(15)
     }
 
     if (currentComponent === totalComponents) {
@@ -29,6 +29,11 @@ const Landing = () => {
   }, [seconds]);
 
 
+  function update() {
+    setCurrentComponent(currentComponent + 1)
+  }
+
+
   return (
     <>
     <div>
@@ -37,9 +42,9 @@ const Landing = () => {
     {(() => {
         switch (currentComponent) {
           case 1:
-            return <Sound content={Test} valeur='chad' />;
+            return <Sound fonction={update} content={Test} valeur='chad' />;
           case 2:
-            return <Sound content={Eye} valeur='eye' />;
+            return <Sound fonction={update} content={Eye} valeur='eye' />;
           default:
             return <p>PROUT</p>;
         }
