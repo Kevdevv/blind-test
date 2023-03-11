@@ -1,10 +1,19 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import PopUp from './PopUp';
 
 const Sound = (props) => {
 
   const [valeurInput, setValeurInput] = useState('');
   const [modal, setModal] = useState(false)
+
+  useEffect(() => {
+    if (modal) {
+      setTimeout(function () {
+        setModal(!modal);
+      }, 1000);
+    }
+
+  }, [modal]);
 
 
   function handleChange(event) {
@@ -25,9 +34,8 @@ const Sound = (props) => {
   return (
     <>
 
-
-        <input type="text" value={valeurInput} onChange={handleChange} />
-      <button onClick={handleSubmit}>Envoyer</button>
+    <input type="text" value={valeurInput} onChange={handleChange} />
+    <button onClick={handleSubmit}>Envoyer</button>
 
     <audio
         controls
@@ -37,7 +45,7 @@ const Sound = (props) => {
                 Download audio
             </a>
     </audio>
-      {modal && <PopUp />}
+    {modal && <PopUp />}
     </>
   )
 }
