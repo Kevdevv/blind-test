@@ -12,7 +12,6 @@ const Sound = (props) => {
         setModal(!modal);
       }, 1000);
     }
-
   }, [modal]);
 
 

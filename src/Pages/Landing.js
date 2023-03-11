@@ -46,7 +46,7 @@ const Landing = () => {
           case 2:
             return <Sound fonction={update} content={Eye} valeur='eye' />;
           default:
-            return <p>PROUT</p>;
+            return <p>FINISH</p>;
         }
       })()}
     </>
