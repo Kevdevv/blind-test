@@ -31,6 +31,7 @@ const BlindTest = () => {
 
   function update() {
     setCurrentComponent(currentComponent + 1)
+    setSeconds(15)
   }
 
 
