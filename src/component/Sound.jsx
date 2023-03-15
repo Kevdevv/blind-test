@@ -6,13 +6,7 @@ const Sound = (props) => {
   const [valeurInput, setValeurInput] = useState('');
   const [modal, setModal] = useState(false)
 
-  useEffect(() => {
-    if (modal) {
-      setTimeout(function () {
-        setModal(!modal);
-      }, 1000);
-    }
-  }, [modal]);
+
 
 
   function handleChange(event) {
@@ -23,7 +17,12 @@ const Sound = (props) => {
   function handleSubmit() {
       if (valeurInput === props.valeur) {
           setModal(true)
-          props.fonction()
+          props.update()
+          props.pause()
+          setTimeout(function () {
+            setModal(false);
+            props.defreez()
+      }, 2000);
       } else {
         console.log('Dans le cul')
       }
@@ -44,7 +43,7 @@ const Sound = (props) => {
                 Download audio
             </a>
     </audio>
-    {modal && <PopUp />}
+      {modal && <PopUp />}
     </>
   )
 }

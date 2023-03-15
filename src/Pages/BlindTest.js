@@ -9,6 +9,7 @@ const BlindTest = () => {
   const totalComponents = 3;
 
   const [seconds, setSeconds] = useState(15);
+  const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
 
@@ -22,16 +23,26 @@ const BlindTest = () => {
       return
     }
     const interval = setInterval(() => {
-      setSeconds(seconds => seconds - 1);
+      if (!isPaused) {
+        setSeconds(seconds => seconds - 1);
+      }
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [seconds]);
+  }, [seconds, isPaused]);
 
 
   function update() {
     setCurrentComponent(currentComponent + 1)
     setSeconds(15)
+  }
+
+  function freez() {
+    setIsPaused(true)
+  }
+  
+  function defreez() {
+    setIsPaused(false)
   }
 
 
@@ -43,9 +54,9 @@ const BlindTest = () => {
     {(() => {
         switch (currentComponent) {
           case 1:
-            return <Sound fonction={update} content={Test} valeur='chad' />;
+            return <Sound defreez={defreez} update={update} pause={freez} content={Test} valeur='chad' />;
           case 2:
-            return <Sound fonction={update} content={Eye} valeur='eye' />;
+            return <Sound defreez={defreez} update={update} pause={freez} content={Eye} valeur='eye' />;
           default:
             return <p>FINISH</p>;
         }
