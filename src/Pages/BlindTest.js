@@ -9,7 +9,7 @@ const BlindTest = () => {
   const totalComponents = 3;
 
   const [seconds, setSeconds] = useState(15);
-  const [isPaused, setIsPaused] = useState(false);
+  const [isPaused, setIsPaused] = useState(true);
 
   useEffect(() => {
 

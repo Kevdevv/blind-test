@@ -1,0 +1,38 @@
+.answer {
+    background: rgb(37, 37, 250);
+    border-radius: 5vw;
+    border: none;
+    margin-top: 1%;
+    padding: 1%;
+    width: 15%;
+    color: white;
+}
+
+.answer:hover {
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+.input_box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20%;
+}
+
+input {
+    padding: 7px;
+    border-radius: 6px;
+    font-size: 16px;
+    background: #fbfbfb;
+    border: 2px solid transparent;
+    height: 20px;
+    box-shadow: 0 0 0 1px #dddddd, 0 2px 4px 0 rgb(0 0 0 / 7%), 0 1px 1.5px 0 rgb(0 0 0 / 5%);
+}
+
+input:focus {
+    border: 35px black;
+}

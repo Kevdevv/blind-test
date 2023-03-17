@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import PopUp from './PopUp';
+import '../styles/sound.css'
 
 const Sound = (props) => {
 
@@ -19,7 +20,7 @@ const Sound = (props) => {
           setModal(true)
           props.update()
           props.pause()
-          setTimeout(function () {
+          setTimeout( () => {
             setModal(false);
             props.defreez()
       }, 2000);
@@ -31,11 +32,12 @@ const Sound = (props) => {
     
   return (
     <>
-
+  <div className='input_box'>
     <input type="text" value={valeurInput} onChange={handleChange} />
-    <button onClick={handleSubmit}>Envoyer</button>
+    <button className='answer' onClick={handleSubmit}>Répondre</button>
+  </div>  
 
-    <audio
+    <audio className='hidden'
         controls
         autoPlay
         src={props.content}>
