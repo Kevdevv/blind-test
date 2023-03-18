@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Test from '../sound/test.mp3'
 import Sound from '../component/Sound'
 import Eye from '../sound/21.mp3'
+import '../styles/blind-test.scss'
 
 const BlindTest = () => {
 
@@ -9,7 +10,7 @@ const BlindTest = () => {
   const totalComponents = 3;
 
   const [seconds, setSeconds] = useState(15);
-  const [isPaused, setIsPaused] = useState(true);
+  const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
 
@@ -48,9 +49,7 @@ const BlindTest = () => {
 
   return (
     <>
-    <div>
-      <h1>Timer: {seconds} secondes</h1>
-    </div>
+    <div className='timer'>{seconds}</div>
     {(() => {
         switch (currentComponent) {
           case 1:

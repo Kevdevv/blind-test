@@ -1,13 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import PopUp from './PopUp';
-import '../styles/sound.css'
+import '../styles/sound.scss'
 
 const Sound = (props) => {
 
   const [valeurInput, setValeurInput] = useState('');
   const [modal, setModal] = useState(false)
-
-
 
 
   function handleChange(event) {
