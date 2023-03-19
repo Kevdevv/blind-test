@@ -1,6 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
+import '../styles/popup.scss'
 
 const customStyles = {
     content: {
@@ -8,19 +8,19 @@ const customStyles = {
         left: '50%',
         right: 'auto',
         bottom: 'auto',
+        width: '20%',
+        height: '30%',
         marginRight: '-50%',
         transform: 'translate(-50%, -50%)',
+        borderRadius: '23px',
     },
 };
 
 
-function PopUp() {
+function PopUp(props) {
     let subtitle;
     const [modalIsOpen, setIsOpen] = React.useState(true);
 
-    function openModal() {
-        setIsOpen(true);
-    }
 
     function afterOpenModal() {
         subtitle.style.color = '#f00';
@@ -39,7 +39,10 @@ function PopUp() {
                 style={customStyles}
                 contentLabel="Example Modal"
             >
-                <p>Bonne Réponse</p>
+                <div className='happy_box'>
+                    <img className='happy' src={props.img} alt='happy people' />
+                    <p>Bonne Réponse !</p>
+                </div>
             </Modal>
         </div>
     );

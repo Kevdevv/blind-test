@@ -1,0 +1,17 @@
+.happy {
+    width: 90%;
+    height: 100%;
+}
+
+.happy_box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    flex-direction: column;
+
+    p {
+        margin-bottom: 10%;
+        font-weight: bold;
+    }
+}

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import PopUp from './PopUp';
 import '../styles/sound.scss'
+import Happy from '../images/happy.jpg'
 
 const Sound = (props) => {
 
@@ -43,7 +44,7 @@ const Sound = (props) => {
                 Download audio
             </a>
     </audio>
-      {modal && <PopUp />}
+      {modal && <PopUp img={Happy} />}
     </>
   )
 }

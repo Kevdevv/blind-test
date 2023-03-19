@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react'
+import { CircularProgressbar } from 'react-circular-progressbar';
+import '../styles/jauge.scss'
 import Test from '../sound/test.mp3'
 import Sound from '../component/Sound'
 import Eye from '../sound/21.mp3'
 import '../styles/blind-test.scss'
+import '../styles/jauge.scss'
 
 const BlindTest = () => {
 
@@ -11,6 +14,8 @@ const BlindTest = () => {
 
   const [seconds, setSeconds] = useState(15);
   const [isPaused, setIsPaused] = useState(false);
+
+  const percentage = 100;
 
   useEffect(() => {
 
@@ -49,7 +54,9 @@ const BlindTest = () => {
 
   return (
     <>
-    <div className='timer'>{seconds}</div>
+    <div className='timer'>
+      <CircularProgressbar minValue='0' maxValue='15' value={seconds} text={`${seconds}`} />
+    </div>
     {(() => {
         switch (currentComponent) {
           case 1:
