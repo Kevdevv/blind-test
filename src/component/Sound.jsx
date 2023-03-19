@@ -17,6 +17,7 @@ const Sound = (props) => {
   function handleSubmit() {
       if (valeurInput === props.valeur) {
           setModal(true)
+          setValeurInput('')
           props.update()
           props.pause()
           setTimeout( () => {
@@ -25,6 +26,7 @@ const Sound = (props) => {
       }, 2000);
       } else {
         console.log('Dans le cul')
+        setValeurInput('')
       }
     }
 

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { CircularProgressbar } from 'react-circular-progressbar';
 import '../styles/jauge.scss'
-import Test from '../sound/test.mp3'
+import Yakitate from '../sound/yakitate.mp3'
 import Sound from '../component/Sound'
-import Eye from '../sound/21.mp3'
+import Eyeshield from '../sound/eyeshield.mp3'
 import '../styles/blind-test.scss'
 import '../styles/jauge.scss'
 
@@ -14,8 +14,6 @@ const BlindTest = () => {
 
   const [seconds, setSeconds] = useState(15);
   const [isPaused, setIsPaused] = useState(false);
-
-  const percentage = 100;
 
   useEffect(() => {
 
@@ -60,9 +58,9 @@ const BlindTest = () => {
     {(() => {
         switch (currentComponent) {
           case 1:
-            return <Sound defreez={defreez} update={update} pause={freez} content={Test} valeur='chad' />;
+            return <Sound defreez={defreez} update={update} pause={freez} content={Yakitate} valeur='yakitate japan' />;
           case 2:
-            return <Sound defreez={defreez} update={update} pause={freez} content={Eye} valeur='eye' />;
+            return <Sound defreez={defreez} update={update} pause={freez} content={Eyeshield} valeur='eyeshield21' />;
           default:
             return <p>FINISH</p>;
         }
