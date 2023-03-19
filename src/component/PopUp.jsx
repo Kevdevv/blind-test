@@ -40,8 +40,8 @@ function PopUp(props) {
                 contentLabel="Example Modal"
             >
                 <div className='happy_box'>
-                    <img className='happy' src={props.img} alt='happy people' />
-                    <p>Bonne Réponse !</p>
+                    <img className={props.class} src={props.img} alt='happy people' />
+                    <p>{props.text}</p>
                 </div>
             </Modal>
         </div>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { CircularProgressbar } from 'react-circular-progressbar';
 import '../styles/jauge.scss'
+import PopUp from '../component/PopUp';
 import Yakitate from '../sound/yakitate.mp3'
 import Sound from '../component/Sound'
 import Eyeshield from '../sound/eyeshield.mp3'
@@ -20,18 +21,18 @@ const BlindTest = () => {
   const [currentComponent, setCurrentComponent] = useState(1);
   const totalComponents = 11;
 
-  const [seconds, setSeconds] = useState(30);
+  const [seconds, setSeconds] = useState(1);
   const [isPaused, setIsPaused] = useState(false);
+
 
   useEffect(() => {
 
     if (seconds === -1) {
       setCurrentComponent(currentComponent +1)
-      setSeconds(30)
+      setSeconds(1)
     }
 
     if (currentComponent === totalComponents) {
-      alert("c'est fini")
       return
     }
     const interval = setInterval(() => {
@@ -46,7 +47,7 @@ const BlindTest = () => {
 
   function update() {
     setCurrentComponent(currentComponent + 1)
-    setSeconds(30)
+    setSeconds(1)
   }
 
   function freez() {
@@ -86,7 +87,7 @@ const BlindTest = () => {
           case 10:
             return <Sound defreez={defreez} update={update} pause={freez} content={Nodame} valeur='nodame cantabile' />;
           default:
-            return <p>FINISH</p>;
+            return <PopUp text="Merci d'avoir jouer !" class="hidden" />
         }
       })()}
     </>

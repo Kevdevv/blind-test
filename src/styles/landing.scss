@@ -1,0 +1,17 @@
+.start_game {
+    width: 10vw;
+    height: 10vw;
+    border-radius: 50%;
+    background: blue;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 2vw;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
