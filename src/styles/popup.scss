@@ -19,3 +19,17 @@
 .hidden {
     display: none;
 }
+
+.regame {
+    background: rgb(37, 37, 250);
+    border-radius: 5vw;
+    border: none;
+    margin-top: 1%;
+    padding: 0.5vw;
+    width: 10vw;
+    color: white;
+
+    &:hover {
+        cursor: pointer;
+    }
+}

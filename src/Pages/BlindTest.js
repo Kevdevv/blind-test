@@ -87,7 +87,7 @@ const BlindTest = () => {
           case 10:
             return <Sound defreez={defreez} update={update} pause={freez} content={Nodame} valeur='nodame cantabile' />;
           default:
-            return <PopUp text="Merci d'avoir jouer !" class="hidden" />
+            return <PopUp button='regame' text="Merci d'avoir jouer !" class="hidden" />
         }
       })()}
     </>

@@ -1,5 +1,6 @@
 import React from 'react';
 import Modal from 'react-modal';
+import { Link } from 'react-router-dom';
 import '../styles/popup.scss'
 
 const customStyles = {
@@ -42,6 +43,7 @@ function PopUp(props) {
                 <div className='happy_box'>
                     <img className={props.class} src={props.img} alt='happy people' />
                     <p>{props.text}</p>
+                    <Link to='/'><button className={props.button}>Rejouer</button></Link>
                 </div>
             </Modal>
         </div>

@@ -46,7 +46,7 @@ const Sound = (props) => {
                 Download audio
             </a>
     </audio>
-      {modal && <PopUp text='Bonne réponse !' class='happy' img={Happy} />}
+      {modal && <PopUp button='hidden' text='Bonne réponse !' class='happy' img={Happy} />}
     </>
   )
 }
