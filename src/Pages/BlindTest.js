@@ -21,7 +21,7 @@ const BlindTest = () => {
   const [currentComponent, setCurrentComponent] = useState(1);
   const totalComponents = 11;
 
-  const [seconds, setSeconds] = useState(1);
+  const [seconds, setSeconds] = useState(30);
   const [isPaused, setIsPaused] = useState(false);
 
 
@@ -29,7 +29,7 @@ const BlindTest = () => {
 
     if (seconds === -1) {
       setCurrentComponent(currentComponent +1)
-      setSeconds(1)
+      setSeconds(30)
     }
 
     if (currentComponent === totalComponents) {
@@ -47,7 +47,7 @@ const BlindTest = () => {
 
   function update() {
     setCurrentComponent(currentComponent + 1)
-    setSeconds(1)
+    setSeconds(30)
   }
 
   function freez() {
